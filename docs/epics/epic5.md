@@ -1,67 +1,30 @@
 ---
-title: Epic 5
+title: Epic 4
 hide:
 - navigation
 ---
-# [Epic 5 - Utworzenie gitlab-runners na proxmox](https://gitlab.com/groups/pl.rachuna-net/-/milestones/5)
+# [Epic 4 - Utworzenie template vm za pomocą packera](https://gitlab.com/groups/pl.rachuna-net/-/milestones/4)
 
 ---
 ## Przygotowanie grup i repozytoriów za pomocą Terraform
 ---
-- [x] Utworzenie repozytorium [pl.rachuna-net/infrastructure/terraform/proxmox](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/issues/38)
-- [x] Utworzenie repozytorium [pl.rachuna-net/infrastructure/terraform/modules/proxmox-vm](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/issues/39)
-- [x] Utworzenie repozytorium [pl.rachuna-net/containers/ansible](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/issues/46)
-- [x] Utworzenie grupy repozytoriów [pl.rachuna-net/infrastructure/ansible](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/issues/40)
-- [x] Utworzenie repozytorium [pl.rachuna-net/infrastructure/ansible/inventory](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/issues/41)
-- [x] Utworzenie grupy repozytoriów [pl.rachuna-net/infrastructure/ansible/playbooks](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/issues/42)
-- [x] Utworzenie grupy repozytoriów [pl.rachuna-net/infrastructure/ansible/roles](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/issues/43)
-- [x] Utworzenie repozytorium [pl.rachuna-net/infrastructure/ansible/playbooks/linux-hardening](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/issues/44)
-- [x] Utworzenie repozytorium [pl.rachuna-net/infrastructure/ansible/playbooks/gitlab-runner](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/issues/51)
-- [x] Utworzenie repozytorium [pl.rachuna-net/infrastructure/ansible/roles/configure-ssh](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/issues/45)
-- [x] Utworzenie repozytorium [pl.rachuna-net/infrastructure/ansible/roles/configure-sudo](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/issues/47)
-- [x] Utworzenie repozytorium [pl.rachuna-net/infrastructure/ansible/roles/set-hotname](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/issues/48)
-- [x] Utworzenie repozytorium [pl.rachuna-net/infrastructure/ansible/roles/install-packages](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/issues/49)
-- [x] Utworzenie repozytorium [pl.rachuna-net/infrastructure/ansible/roles/active-directory-client](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/issues/50)
-- [x] Utworzenie repozytorium [pl.rachuna-net/infrastructure/ansible/roles/gitlab-runner](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/issues/52)
+- [x] Utworzenie repozytorium dla projektu [pl.rachuna-net/containers/packer](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/commit/f55f25b35ea8c255eb24c584d51a668e15b27564)
+- [x] Utworzenie grupy [pl.rachuna-net/infrastructure/packer](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/commit/70dd402abb906ad0d41971d058043d951647fc03)
+- [x] Utworzenie repozytorium dla projektu [pl.rachuna-net/infrastructure/packer/ubuntu](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/commit/575455698d886ee1f6cc08b3e24b0049d8585ab9)
+- [x] Utworzenie repozytorium dla projektu [pl.rachuna-net/infrastructure/packer/alpine](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/commit/56b962635ff7d9c0b418b984622af3b4ead87cab)
+- [x] Utworzenie repozytorium dla projektu [pl.rachuna-net/infrastructure/packer/alma](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/commit/153f7ed81dcf0ffefdf6966d8246bca4916b3c74)
 
 ---
-## Terraform
+## Przygotowanie procesu CI/CD
 ---
-- [x] Utworzenie modułu tworzącego maszynę wirtualną [v1.0.0](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/modules/proxmox-vm/-/releases/v1.0.0)
-- [x] Utworzenie maszyny wirtualnej [vm01001](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/proxmox/-/blob/main/virtual_machines/vm01001.tf)
-- [x] Utworzenie maszyny wirtualnej [vm01002](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/proxmox/-/blob/main/virtual_machines/vm01002.tf)
+- [x] Wydanie obrazu dockerowego z packerem [1.0.1](registry.gitlab.com/pl.rachuna-net/containers/packer:1.0.1)
+- [x] Wydanie komponentu validate [v1.2.0](https://gitlab.com/pl.rachuna-net/cicd/components/validate/-/releases/v1.2.0)
+- [x] Wydanie komponentu build [v1.2.0](https://gitlab.com/pl.rachuna-net/cicd/components/build/-/releases/v1.2.0)
+- [x] Wydanie procesu w gitlab-ci [v1.8.0](https://gitlab.com/pl.rachuna-net/cicd/gitlab-ci/-/releases/v1.8.0)
 
 ---
-## Utworzenie procesu CI
+## Utworzenie template na proxmox
 ---
-- [x] Utworzenie kontenera z ansible [v1.0.0](https://gitlab.com/pl.rachuna-net/containers/ansible/-/releases/v1.0.0)
-- [x] Wydanie komponentu `validate` z `ansible-playbook --check` [v1.3.0](hhttps://gitlab.com/pl.rachuna-net/cicd/components/validate/-/releases/v1.3.0)
-- [x] Wydanie komponentu `unit-test` z `molecule test` [v1.1.0](https://gitlab.com/pl.rachuna-net/cicd/components/unit-test/-/releases/v1.1.0)
-- [x] Wydanie komponentu `deploy` z `ansible-playbook` [v1.1.0](https://gitlab.com/pl.rachuna-net/cicd/components/deploy/-/releases/v1.1.0)
-
----
-## Utworzenie projektu ansible
----
-
-1. - [x] Utworzenie roli [configure-ssh](https://gitlab.com/pl.rachuna-net/infrastructure/ansible/roles/configure-ssh/-/releases/v1.0.0)
-2. - [x] Utworzenie roli [configure-sudo](https://gitlab.com/pl.rachuna-net/infrastructure/ansible/roles/configure-sudo/-/releases/v1.0.0)
-3. - [x] Utworzenie roli [set-hostname](https://gitlab.com/pl.rachuna-net/infrastructure/ansible/roles/set-hostname/-/releases/v1.0.0)
-4. - [x] Utworzenie roli [install-packages](https://gitlab.com/pl.rachuna-net/infrastructure/ansible/roles/install-packages/-/releases/v1.0.0)
-5. - [x] Utworzenie roli [active-directory-client](https://gitlab.com/pl.rachuna-net/infrastructure/ansible/roles/active-directory-client/-/releases/v1.0.2)
-6. - [x] Utworzenie roli [gitlab-runner](https://gitlab.com/pl.rachuna-net/infrastructure/ansible/roles/gitlab-runner/-/releases/v1.0.2)
-
----
-
-1. Playbook [linux-hardening](https://gitlab.com/pl.rachuna-net/infrastructure/ansible/playbooks/linux-hardening)
-   
-      1.  [x] Utworzenie inventory dla [v1.0.0](https://gitlab.com/pl.rachuna-net/infrastructure/ansible/inventory/-/blob/cdbbbf093a522791b1b93e27f66b2cd2b845a199/hosts.yml)
-      2.  [x] Utworzenie playbook testującego połączenie [test_connection.yml](https://gitlab.com/pl.rachuna-net/infrastructure/ansible/playbooks/linux-hardening/-/blob/main/playbooks/test_connection.yml)
-      3.  [x] Podłączenie roli `configure-ssh` do projektu [v1.1.0](https://gitlab.com/pl.rachuna-net/infrastructure/ansible/playbooks/linux-hardening/-/releases/v1.1.0)
-      4.  [x] Podłączenie roli `configure-sudo` do projektu [v1.2.0](https://gitlab.com/pl.rachuna-net/infrastructure/ansible/playbooks/linux-hardening/-/releases/v1.2.0)
-      5.  [x] Podłączenie roli `set-hostname` do projektu [v1.3.0](https://gitlab.com/pl.rachuna-net/infrastructure/ansible/playbooks/linux-hardening/-/releases/v1.3.0)
-      6.  [x] Podłączenie roli `install-packages` do projektu [v1.4.0](https://gitlab.com/pl.rachuna-net/infrastructure/ansible/playbooks/linux-hardening/-/releases/v1.4.0)
-      7.  [x] Podłączenie roli `active-directory-client` do projektu [v1.4.1](https://gitlab.com/pl.rachuna-net/infrastructure/ansible/playbooks/linux-hardening/-/releases/v1.4.0)
-
-1. Playbook [gitlab-runner](https://gitlab.com/pl.rachuna-net/infrastructure/ansible/playbooks/linux-hardening)
-      1.  [x] Utworzenie inventory dla [v1.0.0](https://gitlab.com/pl.rachuna-net/infrastructure/ansible/playbooks/gitlab-runner/-/releases/v1.0.0)
-      2.  [x] Podłączenie roli `gitlab-runner` do projektu [v1.1.0](https://gitlab.com/pl.rachuna-net/infrastructure/ansible/playbooks/gitlab-runner/-/releases/v1.1.0)
+- [x] Utworzenie template Ubuntu [v1.0.0](https://gitlab.com/pl.rachuna-net/infrastructure/packer/ubuntu/-/releases/v1.0.0)
+- [x] Utworzenie template Alpine [v1.0.0](https://gitlab.com/pl.rachuna-net/infrastructure/packer/alpine/-/releases/v1.0.0)
+- [x] Utworzenie template Alma [v1.0.0](https://gitlab.com/pl.rachuna-net/infrastructure/packer/alma/-/releases/v1.0.0)
