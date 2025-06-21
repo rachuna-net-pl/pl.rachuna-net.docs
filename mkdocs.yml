@@ -1,0 +1,208 @@
+---
+site_name: rachuna-net.pl
+site_url: http://docs.rachuna-net.pl
+repo_url: https://gitlab.com/pl.rachuna-net
+edit_uri: ""
+extra_css:
+  - _stylesheets/extra.css
+theme:
+  name: material
+  favicon: _assets/logo.png
+  logo: _assets/logo.png
+  language: pl
+  palette:
+    primary: indigo
+    scheme: default
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.top
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.path
+    - content.tabs.link
+    - content.code.copy
+    - blog
+    - blog.summary
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/gitlab
+markdown_extensions:
+  - abbr
+  - attr_list
+  - admonition
+  - tables
+  - attr_list
+  - md_in_html
+  - def_list
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.highlight:
+      anchor_linenums: true
+      linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+plugins:
+  - search
+  - social
+  - privacy
+  - tags
+  - meta
+  - blog:
+      blog_toc: true
+      post_excerpt: optional
+      post_excerpt_separator: <!-- more -->
+extra:
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+    actions:
+      - accept
+copyright: >
+  Copyright &copy; 2025 Maciej Rachuna. All rights reserved.
+nav:
+  - "🏠 home":
+      - "index.md"
+  - "📑 Blog": "blog/index.md"
+  - "🥰 Projekty":
+      - "projects/index.md"
+      - "projects/Infrastructure.md"
+      - "Gitlab":
+          - "projects/gitlab/index.md"
+          - "projects/gitlab/Conventional Commits.md"
+          - "Infrastructure as a Code":
+              - "projects/gitlab/Infrastructure as a Code/index.md"
+              - "projects/gitlab/Infrastructure as a Code/Tworzenie grupy repozytoriow.md"
+              - "projects/gitlab/Infrastructure as a Code/Tworzenie repozytorium kodu.md"
+          - "projects/gitlab/Instalacja Gitlab Runners.md"
+          - "Gitlab-CI":
+              - "projects/gitlab/Gitlab-CI/index.md"
+              - "Components":
+                  - "projects/gitlab/Gitlab-CI/Components/index.md"
+                  - "prepare":
+                      - "projects/gitlab/Gitlab-CI/Components/prepare/index.md"
+                      - "projects/gitlab/Gitlab-CI/Components/prepare/input_parameters.md"
+                  - "validate":
+                      - "projects/gitlab/Gitlab-CI/Components/validate/index.md"
+                      - "projects/gitlab/Gitlab-CI/Components/validate/yamllint.md"
+                      - "projects/gitlab/Gitlab-CI/Components/validate/terraform.md"
+                  - "unit-test":
+                      - "projects/gitlab/Gitlab-CI/Components/unit-test/index.md"
+                      - "projects/gitlab/Gitlab-CI/Components/unit-test/terraform.md"
+                  - "sast":
+                      - "projects/gitlab/Gitlab-CI/Components/sast/index.md"
+                      - "projects/gitlab/Gitlab-CI/Components/sast/sonarqube.md"
+                  - "build":
+                      - "projects/gitlab/Gitlab-CI/Components/build/index.md"
+                      - "projects/gitlab/Gitlab-CI/Components/build/docker.md"
+                      - "projects/gitlab/Gitlab-CI/Components/build/mkdocs.md"
+                  - "publish":
+                      - "projects/gitlab/Gitlab-CI/Components/publish/index.md"
+                      - "projects/gitlab/Gitlab-CI/Components/publish/docker.md"
+                  - "release":
+                      - "projects/gitlab/Gitlab-CI/Components/release/index.md"
+                      - "projects/gitlab/Gitlab-CI/Components/release/Wersjonowanie kodu.md"
+                      - "projects/gitlab/Gitlab-CI/Components/release/Publikacja wersji jako secret w vault.md"
+                  - "deploy":
+                      - "projects/gitlab/Gitlab-CI/Components/deploy/index.md"
+                      - "projects/gitlab/Gitlab-CI/Components/deploy/mkdocs.md"
+                      - "projects/gitlab/Gitlab-CI/Components/deploy/terraform.md"
+                  - "integration-test":
+                      - "projects/gitlab/Gitlab-CI/Components/integration-test/index.md"
+                      - "projects/gitlab/Gitlab-CI/Components/integration-test/docker.md"
+              - "Pipelines":
+                  - "projects/gitlab/Gitlab-CI/pipelines/index.md"
+                  - "projects/gitlab/Gitlab-CI/pipelines/default.md"
+                  - "projects/gitlab/Gitlab-CI/pipelines/gitlab-ci.md"
+                  - "projects/gitlab/Gitlab-CI/pipelines/gitlab-component.md"
+                  - "projects/gitlab/Gitlab-CI/pipelines/docker.md"
+                  - "projects/gitlab/Gitlab-CI/pipelines/Packer.md"
+                  - "projects/gitlab/Gitlab-CI/pipelines/Terraform.md"
+              - "projects/gitlab/Gitlab-CI/Centralny proces w gitlab.md"
+              - "projects/gitlab/Gitlab-CI/Automatyczne ustawianie wersji komponentow.md"
+              - "projects/gitlab/Gitlab-CI/Zasady pisania w gitlab-ci.md"
+              - "projects/gitlab/Gitlab-CI/Definicja stages.md"
+          - "projects/gitlab/graphql-explorer.md"
+          - "projects/gitlab/git-scripts.md"
+          - "projects/gitlab/pages.md"
+      - "SonarQube":
+          - "projects/sonarqube/index.md"
+          - "projects/sonarqube/Utworzenie projektu w SonarCloud.md"
+      - "Proxmox":
+          - "projects/proxmox/index.md"
+          - "projects/proxmox/Konfiguracja.md"
+          # - "Utworzenie maszyny wirtualnej":
+          #     - "projects/proxmox/Utworzenie maszyny wirtualnej/index.md"
+          #     - "projects/proxmox/Utworzenie maszyny wirtualnej/Instalacja systemu operacyjnego.md"
+      - "Consul & Vault":
+          - "projects/consul-vault/Instalacja Consul & Vault.md"
+          - "projects/consul-vault/index.md"
+          - "Infrastructure as a Code":
+              - "projects/consul-vault/Infrastructure as a Code/index.md"
+          - "projects/consul-vault/Consul.md"
+          - "projects/consul-vault/Vault.md"
+      - "Terraform":
+          - "Infrastructure as a Code":
+              - "projects/terraform/Infrastructure as a Code/index.md"
+              - "gitlab":
+                  - "projects/terraform/Infrastructure as a Code/gitlab/index.md"
+                  - "projects/terraform/Infrastructure as a Code/gitlab/Tworzenie grupy repozytoriow.md"
+                  - "projects/terraform/Infrastructure as a Code/gitlab/Tworzenie repozytorium kodu.md"
+            # - "routeros":
+            #   - "projects/terraform/Infrastructure as a Code/routeros/RouterOS.md"
+              - "proxmox":
+                  - "projects/terraform/Infrastructure as a Code/proxmox/Tworzenie maszyny wirtualnej.md"
+          - "projects/terraform/index.md"
+          - "projects/terraform/Integracja z projektem gitlab.md"
+
+          - "projects/terraform/Terraform modules.md"
+          - "projects/terraform/Importowanie istniejących obiektów.md"
+          - "projects/terraform/Blog.md"
+
+      - "Packer":
+          - "projects/packer/index.md"
+          - "projects/packer/Struktura repozytorium.md"
+          - "projects/packer/Skrypt uruchamiający packer.md"
+          - "projects/packer/Blog.md"
+      - "Ansible":
+          - "projects/ansible/index.md"
+          - "projects/ansible/Architektura rozwiazania.md"
+          - "projects/ansible/Testowanie roli.md"
+          - "projects/ansible/Blog.md"
+  - "🛠️ Epics":
+      - "epics/index.md"
