@@ -151,6 +151,7 @@ nav:
                   - "projects/gitlab/Gitlab-CI/pipelines/gitlab-ci.md"
                   - "projects/gitlab/Gitlab-CI/pipelines/gitlab-component.md"
                   - "projects/gitlab/Gitlab-CI/pipelines/docker.md"
+                  - "projects/gitlab/Gitlab-CI/pipelines/mkdocs.md"
                   - "projects/gitlab/Gitlab-CI/pipelines/Packer.md"
                   - "projects/gitlab/Gitlab-CI/pipelines/Terraform.md"
               - "projects/gitlab/Gitlab-CI/Centralny proces w gitlab.md"

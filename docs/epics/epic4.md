@@ -3,28 +3,67 @@ title: Epic 4
 hide:
 - navigation
 ---
-# [Epic 4 - Utworzenie template vm za pomocą packera](https://gitlab.com/groups/pl.rachuna-net/-/milestones/4)
+# Epic 4 - Integracja z Sonarqube cloud
+
+!!! notes
+    Proces obejmuje utworzenie organizacji w **SonarCloud**, przygotowanie kontenera sonar-scanner, komponentu sast oraz pełną integrację repozytoriów CI/CD i kontenerów. Dzięki wykorzystaniu infrastruktury jako kodu (Terraform) oraz zapytań GraphQL do GitLaba, integracja będzie skalowalna i łatwa w utrzymaniu.
+
+---
+## [🎯 Cel epiki](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-64)
+
+Celem epika jest pełna integracja środowiska CI/CD grupy `pl.rachuna-net` z platformą **SonarCloud** – usługą typu SaaS dostarczaną przez SonarSource. Inicjatywa ta ma na celu zapewnienie **ciągłej analizy jakości kodu**, wykrywanie błędów, debtu technicznego i luk bezpieczeństwa w całym łańcuchu buildów, w sposób spójny i zautomatyzowany.
+
+Zakres obejmuje:
+
+* utworzenie organizacji SonarCloud i repozytoriów infrastrukturalnych,
+* zbudowanie kontenera `sonar-scanner`,
+* utworzenie komponentu `sast` do analiz statycznych,
+* skalowalną integrację z wszystkimi repozytoriami GitLab w ramach `pl.rachuna-net` (poprzez GraphQL),
+* wdrożenie mechanizmu automatycznego podłączania projektów do SonarQube na poziomie komponentów CI/CD i kontenerów.
+
+---
+## Czynności manualne
+* [x] [DEVOPS-65](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-65): Utworzenie organizacji w [https://sonarcloud.io](https://sonarcloud.io/organizations/pl-rachuna-net/projects?sort=name&view=leak)
 
 ---
 ## Przygotowanie grup i repozytoriów za pomocą Terraform
----
-- [x] Utworzenie repozytorium dla projektu [pl.rachuna-net/containers/packer](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/commit/f55f25b35ea8c255eb24c584d51a668e15b27564)
-- [x] Utworzenie grupy [pl.rachuna-net/infrastructure/packer](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/commit/70dd402abb906ad0d41971d058043d951647fc03)
-- [x] Utworzenie repozytorium dla projektu [pl.rachuna-net/infrastructure/packer/ubuntu](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/commit/575455698d886ee1f6cc08b3e24b0049d8585ab9)
-- [x] Utworzenie repozytorium dla projektu [pl.rachuna-net/infrastructure/packer/alpine](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/commit/56b962635ff7d9c0b418b984622af3b4ead87cab)
-- [x] Utworzenie repozytorium dla projektu [pl.rachuna-net/infrastructure/packer/alma](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/gitlab/-/commit/153f7ed81dcf0ffefdf6966d8246bca4916b3c74)
+
+* [x] [DEVOPS-66](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-66): Definicja repozytorium [pl.rachuna-net/containers/sonar-scanner](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/iac-gitlab/-/blob/main/pl.rachuna-net/containers/sonar-scanner.tf?ref_type=heads)
+* [x] [DEVOPS-67](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-67): Definicja repozytorium [pl.rachuna-net/cicd/components/sast](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/iac-gitlab/-/blob/main/pl.rachuna-net/cicd/components/sast.tf?ref_type=heads)
 
 ---
-## Przygotowanie procesu CI/CD
----
-- [x] Wydanie obrazu dockerowego z packerem [1.0.1](registry.gitlab.com/pl.rachuna-net/containers/packer:1.0.1)
-- [x] Wydanie komponentu validate [v1.2.0](https://gitlab.com/pl.rachuna-net/cicd/components/validate/-/releases/v1.2.0)
-- [x] Wydanie komponentu build [v1.2.0](https://gitlab.com/pl.rachuna-net/cicd/components/build/-/releases/v1.2.0)
-- [x] Wydanie procesu w gitlab-ci [v1.8.0](https://gitlab.com/pl.rachuna-net/cicd/gitlab-ci/-/releases/v1.8.0)
+## Utworzenie obrazu sonar-scanner
+
+* [x] [DEVOPS-68](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-68): Utworzenie obrazu z `sonar-scanner-cli` - [v1.0.0](https://gitlab.com/pl.rachuna-net/containers/sonar-scanner/-/releases/v1.0.0)
 
 ---
-## Utworzenie template na proxmox
+## components/sonarqube
+
+* [x] [DEVOPS-69](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-69):  Utworzenie komponentu [sast](https://gitlab.com/pl.rachuna-net/cicd/components/sast/-/releases/v1.0.0)
+
 ---
-- [x] Utworzenie template Ubuntu [v1.0.0](https://gitlab.com/pl.rachuna-net/infrastructure/packer/ubuntu/-/releases/v1.0.0)
-- [x] Utworzenie template Alpine [v1.0.0](https://gitlab.com/pl.rachuna-net/infrastructure/packer/alpine/-/releases/v1.0.0)
-- [x] Utworzenie template Alma [v1.0.0](https://gitlab.com/pl.rachuna-net/infrastructure/packer/alma/-/releases/v1.0.0)
+## Skalowanie rozwiązania
+
+Wyciągniecie wszytkistkich repozytoriów z [graphql](https://gitlab.com/-/graphql-explorer)
+```
+query groupProjects {
+  group(fullPath: "pl.rachuna-net") {
+    projects(includeSubgroups: true)
+    {
+      nodes {
+        fullPath
+      },
+    }
+  }
+}
+```
+
+* [x] [DEVOPS-111](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-111): Integracja z Sonarque `pl.rachuna-net/containers/mkdocs`
+* [x] [DEVOPS-79](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-79): Integracja z Sonarque `pl.rachuna-net/containers/python`
+* [x] [DEVOPS-74](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-74): Integracja z Sonarque `pl.rachuna-net/containers/semantic-release`
+* [x] [DEVOPS-73](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-73): Integracja z Sonarque `pl.rachuna-net/containers/sonar-scanner`
+* [x] [DEVOPS-75](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-75): Integracja z Sonarque `pl.rachuna-net/containers/sonar-terraform`
+* [x] [DEVOPS-102](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-102): Integracja z Sonarque `pl.rachuna-net/containers/vault`
+* [x] [DEVOPS-70](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-70): Integracja z Sonarque `pl.rachuna-net/infrastructure/terraform/iac-gitlab`
+* [x] [DEVOPS-72](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-72): Integracja z Sonarque `pl.rachuna-net/infrastructure/terraform/modules/gitlab-group`
+* [x] [DEVOPS-71](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-71): Integracja z Sonarque `pl.rachuna-net/infrastructure/terraform/modules/gitlab-project`

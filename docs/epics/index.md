@@ -6,20 +6,32 @@ hide:
 
 # Epics
 
-Poniżej znajduje się lista epic, które pokażą w jaki sposób zrealizowane były projekty
+<!-- Poniżej znajduje się lista epic, które pokażą w jaki sposób zrealizowane były projekty -->
 
-- [🛠️ Epic 7 - Zarządzanie usługami routerami mikrotik za pomocą terraform](/epics/epic7/)
-- [🛠️ Epic 6 - Utworzenie vault and consul na proxmox](/epics/epic6/)
-- [🛠️ Epic 5 - Utworzenie gitlab-runners na proxmox](/epics/epic5/)
-- [🛠️ Epic 4 - Utworzenie template vm za pomocą packera](/epics/epic4/) 
-
+<!-- - [🛠️ Epic 8 - Zarządzanie usługami routerami mikrotik za pomocą terraform](/epics/epic7/)
+- [🛠️ Epic 7 - Utworzenie vault and consul na proxmox](/epics/epic6/)
+- [🛠️ Epic 6 - Utworzenie gitlab-runners na proxmox](/epics/epic5/) -->
 
 <div class="grid cards" markdown>
--   __🛠️ Epic 3__ - Integracja z Sonarqube cloud
+
+-   __🛠️ Epic 5__ - Utworzenie template vm za pomocą packera
+
+    ---
+    Projekt zakłada stworzenie systemu do automatycznego budowania gotowych maszyn wirtualnych (template’ów) za pomocą Packer’a. Szablony takie jak Ubuntu, Alpine czy AlmaLinux będą wersjonowane i gotowe do wdrożenia w infrastrukturze, co znacząco przyspieszy provisioning środowisk. Automatyzacja zapewni spójność, oszczędność czasu oraz wyeliminowanie błędów manualnych.
+    [:octicons-arrow-right-24: Więcej](/epics/epic5/)
+
+-   __🛠️ Epic 4__ - Integracja z Sonarqube cloud
 
     ---
     Proces obejmuje utworzenie organizacji w **SonarCloud**, przygotowanie kontenera sonar-scanner, komponentu sast oraz pełną integrację repozytoriów CI/CD i kontenerów. Dzięki wykorzystaniu infrastruktury jako kodu (Terraform) oraz zapytań GraphQL do GitLaba, integracja będzie skalowalna i łatwa w utrzymaniu.
+    [:octicons-arrow-right-24: Więcej](/epics/epic4/)
+
+-   __🛠️ Epic 3__ - Utworzenie centralnego miejsca do przechowywania dokumentacji
+
+    ---
+    Projekt zakłada uruchomienie centralnej dokumentacji technicznej rachuna-net, zautomatyzowanej i dostępnej publicznie przez GitLab Pages, zintegrowanej z domeną firmową. Ułatwi to zarządzanie wiedzą, onboarding i rozwój projektów.
     [:octicons-arrow-right-24: Więcej](/epics/epic3/)
+
 
 -   __🛠️ Epic 2__ - tworzenie procesów gitlab-ci
 
