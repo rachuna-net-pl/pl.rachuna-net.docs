@@ -1,8 +1,6 @@
 ---
 title: Wstęp do Packer
 description: Wstęp do Packer
-tags:
-- packer
 ---
 # ![](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/modules/gitlab-project/-/raw/main/images/packer.png){width=20px} Packer
 

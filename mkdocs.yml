@@ -119,8 +119,9 @@ nav:
                       - "projects/gitlab/Gitlab-CI/Components/prepare/input_parameters.md"
                   - "validate":
                       - "projects/gitlab/Gitlab-CI/Components/validate/index.md"
-                      - "projects/gitlab/Gitlab-CI/Components/validate/yamllint.md"
+                      - "projects/gitlab/Gitlab-CI/Components/validate/packer.md"
                       - "projects/gitlab/Gitlab-CI/Components/validate/terraform.md"
+                      - "projects/gitlab/Gitlab-CI/Components/validate/yamllint.md"
                   - "unit-test":
                       - "projects/gitlab/Gitlab-CI/Components/unit-test/index.md"
                       - "projects/gitlab/Gitlab-CI/Components/unit-test/terraform.md"
@@ -131,6 +132,7 @@ nav:
                       - "projects/gitlab/Gitlab-CI/Components/build/index.md"
                       - "projects/gitlab/Gitlab-CI/Components/build/docker.md"
                       - "projects/gitlab/Gitlab-CI/Components/build/mkdocs.md"
+                      - "projects/gitlab/Gitlab-CI/Components/build/packer.md"
                   - "publish":
                       - "projects/gitlab/Gitlab-CI/Components/publish/index.md"
                       - "projects/gitlab/Gitlab-CI/Components/publish/docker.md"
@@ -167,6 +169,11 @@ nav:
       - "Proxmox":
           - "projects/proxmox/index.md"
           - "projects/proxmox/Konfiguracja.md"
+          - "Packer":
+              - "projects/proxmox/packer/index.md"
+              - "projects/proxmox/packer/Struktura repozytorium.md"
+              - "projects/proxmox/packer/Skrypt uruchamiający packer.md"
+              - "projects/proxmox/packer/Lista projektow.md"
           # - "Utworzenie maszyny wirtualnej":
           #     - "projects/proxmox/Utworzenie maszyny wirtualnej/index.md"
           #     - "projects/proxmox/Utworzenie maszyny wirtualnej/Instalacja systemu operacyjnego.md"
@@ -190,16 +197,9 @@ nav:
                   - "projects/terraform/Infrastructure as a Code/proxmox/Tworzenie maszyny wirtualnej.md"
           - "projects/terraform/index.md"
           - "projects/terraform/Integracja z projektem gitlab.md"
-
           - "projects/terraform/Terraform modules.md"
           - "projects/terraform/Importowanie istniejących obiektów.md"
           - "projects/terraform/Blog.md"
-
-      - "Packer":
-          - "projects/packer/index.md"
-          - "projects/packer/Struktura repozytorium.md"
-          - "projects/packer/Skrypt uruchamiający packer.md"
-          - "projects/packer/Blog.md"
       - "Ansible":
           - "projects/ansible/index.md"
           - "projects/ansible/Architektura rozwiazania.md"

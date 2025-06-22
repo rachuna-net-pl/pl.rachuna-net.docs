@@ -8,7 +8,7 @@ title: sonarqube
 
     Dzięki wsparciu dla tokenów, organizacji i źródeł – komponent działa niezależnie od języka i struktury projektu.
 
-## ⚙️ Parametry wejściowe (`inputs`)
+### ⚙️ Parametry wejściowe (`inputs`)
 
 | Nazwa                       | Typ    | Domyślna wartość                                                    | Opis                                                |
 | --------------------------- | ------ | ------------------------------------------------------------------- | --------------------------------------------------- |
@@ -24,7 +24,7 @@ title: sonarqube
 | `sonar_sources`             | string | `"."`                                                               | Ścieżka do źródeł                                   |
 
 ---
-## 🧬 Zmienne środowiskowe
+### 🧬 Zmienne środowiskowe
 
 | Nazwa zmiennej              | Wartość                                            |
 | --------------------------- | -------------------------------------------------- |
@@ -41,7 +41,7 @@ title: sonarqube
 | `GIT_DEPTH`                 | `0` (wymagane przez Sonar do analizy historii Git) |
 
 ---
-## 🧱 Zależności
+### 🧱 Zależności
 
 * Pliki lokalne:
 
@@ -52,12 +52,12 @@ title: sonarqube
 * Wymagany token `SONAR_TOKEN`, najlepiej jako zmienna `CI/CD secret`
 
 ---
-## 💪 Job: `sonarqube scanner`
+### 💪 Job: `sonarqube scanner`
 
 * Wykonuje analizę jakości kodu za pomocą `sonar-scanner`.
 * Zbierane dane: błędy, pokrycie testami, duplicaty, wskaźniki jakości.
 
-### 📜 Skrypt
+#### 📜 Skrypt
 
 ```bash
 sonar-scanner \
@@ -72,7 +72,7 @@ sonar-scanner \
 ```
 
 ---
-## 🧪 Przykład użycia
+### 🧪 Przykład użycia
 
 ```yaml
 include:

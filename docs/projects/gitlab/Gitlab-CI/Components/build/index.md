@@ -12,3 +12,5 @@ title: Build
 Komponent składa się z następujących templates:
 
 * [docker](docker/)
+* [mkdocs](mkdocs/)
+* [packer](packer/)

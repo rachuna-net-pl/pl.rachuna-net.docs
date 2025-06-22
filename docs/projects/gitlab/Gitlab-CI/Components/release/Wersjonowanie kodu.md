@@ -18,9 +18,7 @@ title: Wersjonowania kodu
 
     SemVer pomaga w zarządzaniu zależnościami i ułatwia utrzymanie kompatybilności kodu.
 
-<!-- more -->
-
-## Krok 1. Przygotowanie obrazu kontenerowego
+### Krok 1. Przygotowanie obrazu kontenerowego
 
 Przygotowany obraz kontenerowy z semantic-release[^2] 
 [commit](https://gitlab.com/pl.rachuna-net/containers/semantic-release/-/blob/7fa2f283201ba7c8dcd72d8170f146c3b301a497/Dockerfile)
@@ -31,7 +29,7 @@ Ręczne wydanie obrazu
  docker push registry.gitlab.com/pl.rachuna-net/containers/semantic-release:0.0.1
 ```
 
-## Krok 2. Przygotowanie komponentu do wersjonowania kodu
+### Krok 2. Przygotowanie komponentu do wersjonowania kodu
 [pl.rachuna-net/cicd/components/release](https://gitlab.com/pl.rachuna-net/cicd/components/release/-/blob/main/templates/semantic-release.yml?ref_type=heads)
 
 - Krok 1. Pobieranie konfiguracji `.releaserc.js`
@@ -43,7 +41,7 @@ Ręczne wydanie obrazu
 - Krok 2. Uruchomienie semantic-release
 
 ---
-## Przykładowe użycie w `.gitlab-ci.yml`
+### Przykładowe użycie w `.gitlab-ci.yml`
 
 ```yml
 default:

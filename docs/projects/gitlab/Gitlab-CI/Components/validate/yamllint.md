@@ -14,7 +14,7 @@ include:
 ```
 
 ---
-## ⚙️ Parametry wejściowe (`inputs`)
+### ⚙️ Parametry wejściowe (`inputs`)
 
 | Nazwa          | Typ    | Domyślna wartość                                                                                     | Opis                                                              |
 | -------------- | ------ | ---------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
@@ -22,7 +22,7 @@ include:
 | `yamllint_url` | string | `https://gitlab.com/api/v4/projects/70917288/repository/files/_configs%2F.yamllint.yml/raw?ref=main` | URL do pliku `.yamllint`, pobieranego jeśli nie istnieje lokalnie |
 
 ---
-## 🧬 Zmienne środowiskowe
+### 🧬 Zmienne środowiskowe
 
 | Nazwa zmiennej           | Wartość                      |
 | ------------------------ | ---------------------------- |
@@ -30,7 +30,7 @@ include:
 | `YAMLLINT_URL`           | `$[[ inputs.yamllint_url ]]` |
 
 ---
-## 🧱 Zależności
+### 🧱 Zależności
 
 * Pliki lokalne:
 
@@ -40,7 +40,7 @@ include:
 * Wymaga zmiennej `GITLAB_TOKEN` do pobrania pliku `.yamllint` przez API GitLab
 
 ---
-## 🚀 Job: `🕵 YAML lint`
+### 🚀 Job: `🕵 YAML lint`
 
 Ten job:
 
@@ -58,7 +58,7 @@ yamllint .
     Jeśli plik `.yamllint` już istnieje w repozytorium, nie zostanie nadpisany.
 
 ---
-## 🧪 Przykład użycia z niestandardowym configiem
+### 🧪 Przykład użycia z niestandardowym configiem
 
 ```yaml
 include:

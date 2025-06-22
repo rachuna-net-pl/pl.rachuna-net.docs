@@ -8,7 +8,7 @@ title: terraform
     Job wykonuje `terraform apply -auto-approve`, co oznacza automatyczne zatwierdzanie zmian – powinien być używany tylko w zaufanych i kontrolowanych środowiskach.
 
 ---
-## ⚙️ Parametry wejściowe (`inputs`)
+### ⚙️ Parametry wejściowe (`inputs`)
 
 | Nazwa           | Typ    | Domyślna wartość                                                | Opis                                                                 |
 | --------------- | ------ | --------------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -17,7 +17,7 @@ title: terraform
 | `debug`         | string | `"false"`                                                       | Czy włączyć tryb debugowania (`TF_LOG=debug`)                        |
 
 ---
-## 🧬 Zmienne środowiskowe
+### 🧬 Zmienne środowiskowe
 
 | Nazwa zmiennej              | Wartość                       |
 | --------------------------- | ----------------------------- |
@@ -27,7 +27,7 @@ title: terraform
 | `DEBUG`                     | `$[[ inputs.debug ]]`         |
 
 ---
-## 🧱 Zależności
+### 🧱 Zależności
 
 * **Pliki lokalne**:
 
@@ -38,13 +38,13 @@ title: terraform
 * Wymagana zmienna `GITLAB_TOKEN`, przekazywana jako `TF_VAR_gitlab_token`
 
 ---
-## 💥 Job: `terraform apply`
+### 💥 Job: `terraform apply`
 
 * Wykonuje komendę `terraform apply -auto-approve`
 * Stosuje wcześniej zdefiniowane plany i zmiany w infrastrukturze
 * Nie wymaga interakcji ani zatwierdzania ręcznego
 
-### 📜 Skrypt
+#### 📜 Skrypt
 
 ```bash
 terraform apply -auto-approve
@@ -54,7 +54,7 @@ terraform apply -auto-approve
     Inicjalizacja (`terraform init`) jest wykonywana w `before_script`.
 
 ---
-## 🧪 Przykład użycia
+### 🧪 Przykład użycia
 
 ```yaml
 include:

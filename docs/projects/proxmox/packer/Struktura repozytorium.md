@@ -1,9 +1,8 @@
 ---
 title: Struktura repozytorium
 description: Struktura repozytorium
-tags:
-- packer
 ---
+
 # ![](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/modules/gitlab-project/-/raw/main/images/packer.png){width=20px} Struktura repozytorium
 
 ## Struktura katalogów i plików w repozytorium

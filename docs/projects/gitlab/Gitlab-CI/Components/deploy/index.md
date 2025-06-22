@@ -11,4 +11,5 @@ title: deploy
 
 Komponent składa się z następujących templates:
 
+* [mkdocs](mkdocs/)
 * [terraform](terraform/)

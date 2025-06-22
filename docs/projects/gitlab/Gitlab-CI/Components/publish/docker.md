@@ -14,7 +14,7 @@ include:
 ```
 
 ---
-## ⚙️ Parametry wejściowe (`inputs`)
+### ⚙️ Parametry wejściowe (`inputs`)
 
 | Nazwa                | Typ    | Domyślna wartość | Opis                                                           |
 | -------------------- | ------ | ---------------- | -------------------------------------------------------------- |
@@ -24,7 +24,7 @@ include:
 | `container_version`  | string | `latest`         | Wersja kontenera, która zostanie nadana tagowi                 |
 
 ---
-## 🧬 Zmienne środowiskowe
+### 🧬 Zmienne środowiskowe
 
 | Nazwa zmiennej           | Wartość                            |
 | ------------------------ | ---------------------------------- |
@@ -35,7 +35,7 @@ include:
 
 ---
 
-## 🧱 Zależności
+### 🧱 Zależności
 
 * Włączenie plików lokalnych (muszą być obecne w repozytorium):
 
@@ -44,7 +44,7 @@ include:
 * Wymaga `docker:dind` jako serwisu
 
 ---
-## 🚀 Job: `🌐 publish docker image`
+### 🚀 Job: `🌐 publish docker image`
 
 Ten job:
 
@@ -53,7 +53,7 @@ Ten job:
 3. Wysyła obraz do `CI_REGISTRY`.
 4. Zapisuje pełną nazwę obrazu do pliku `versioning_container.env`, który może być użyty w kolejnych etapach.
 
-### 📜 Skrypt
+#### 📜 Skrypt
 
 ```bash
 docker build --build-arg CONTAINER_VERSION=$CONTAINER_VERSION -t $CI_REGISTRY_IMAGE:$CONTAINER_VERSION .
@@ -62,13 +62,13 @@ docker push $CI_REGISTRY_IMAGE:$CONTAINER_VERSION
 ```
 
 ---
-### 📤 Artefakty
+#### 📤 Artefakty
 
 * `versioning_container.env` jako `dotenv` – zawiera pełną nazwę obrazu:
   `CONTAINER_IMAGE_VERSION=$CI_REGISTRY_IMAGE:$CONTAINER_VERSION`
 
 ---
-## 🧪 Przykład użycia z parametrami
+### 🧪 Przykład użycia z parametrami
 
 ```yaml
 include:
