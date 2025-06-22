@@ -1,9 +1,8 @@
 ---
 title: Skrypt uruchamiający packer
 description: Skrypt uruchamiający packer
-tags:
-- packer
 ---
+
 # ![](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/modules/gitlab-project/-/raw/main/images/packer.png){width=20px} Skrypt uruchamiający packer
 
 !!! info

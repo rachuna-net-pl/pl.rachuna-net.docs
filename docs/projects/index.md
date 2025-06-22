@@ -36,15 +36,15 @@ authors: Maciej Rachuna
     ---
     Powoływanie Infrastruktury as a Code
     [:octicons-arrow-right-24: Więcej](terraform/index.md)
-</div>
----
-<!-- 
 
 -   ![](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/modules/gitlab-project/-/raw/main/images/packer.png){width=10px} __Packer__
 
     ---
     Tworzenie template maszyn wirtualnych
-    [:octicons-arrow-right-24: Więcej](packer/index.md)
+    [:octicons-arrow-right-24: Więcej](proxmox/packer/index.md)
+</div>
+---
+<!-- 
 
 -   ![](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/modules/gitlab-project/-/raw/main/images/ansible.png){width=10px} __Ansible__
 

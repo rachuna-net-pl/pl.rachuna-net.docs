@@ -9,7 +9,7 @@ title: docker
     Job korzysta z usługi `docker:dind` (Docker-in-Docker), co pozwala na niezależne budowanie obrazów wewnątrz pipeline'u GitLaba.
 
 ---
-## ⚙️ Parametry wejściowe (`inputs`)
+### ⚙️ Parametry wejściowe (`inputs`)
 
 | Nazwa                | Typ    | Domyślna wartość | Opis                                                         |
 | -------------------- | ------ | ---------------- | ------------------------------------------------------------ |
@@ -19,7 +19,7 @@ title: docker
 | `container_version`  | string | `latest`         | Wersja obrazu kontenera (używana jako tag w `docker build`)  |
 
 ---
-## 🧬 Zmienne środowiskowe
+### 🧬 Zmienne środowiskowe
 
 | Nazwa zmiennej           | Wartość                            |
 | ------------------------ | ---------------------------------- |
@@ -29,7 +29,7 @@ title: docker
 | `CONTAINER_VERSION`      | `$[[ inputs.container_version ]]`  |
 
 ---
-## 🧱 Zależności
+### 🧱 Zależności
 
 * **Pliki lokalne**:
 
@@ -43,13 +43,13 @@ title: docker
 * Wymagany plik `Dockerfile` w katalogu głównym repozytorium
 
 ---
-## 🚀 Job: `build docker image`
+### 🚀 Job: `build docker image`
 
 * Buduje obraz Dockera z katalogu projektu
 * Używa wersji (`container_version`) jako taga
 * Gotowy do rozszerzenia o dodatkowe tagi, push lub metadane
 
-### 📜 Skrypt
+#### 📜 Skrypt
 
 ```bash
 docker build \
@@ -58,7 +58,7 @@ docker build \
 ```
 
 ---
-## 🧪 Przykład użycia
+### 🧪 Przykład użycia
 
 ```yaml
 include:

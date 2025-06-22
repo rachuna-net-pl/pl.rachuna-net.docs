@@ -1,34 +1,28 @@
-Pewnie! Poniżej znajdziesz dokumentację komponentu GitLab CI/CD służącego do **publikacji dokumentacji MkDocs przy użyciu GitLab Pages**, zgodną ze stylem poprzednich komponentów.
-
+---
+title: mkdocs
 ---
 
-## 💿 Komponent CI/CD: `mkdocs-deploy`
+!!! note
+    Komponent `mkdocs-deploy` umożliwia automatyczne **publikowanie statycznej dokumentacji z MkDocs do GitLab Pages**. Wykorzystuje mechanizm GitLab Pages do hostowania wygenerowanej strony internetowej bez konieczności użycia dodatkowych serwerów czy zewnętrznej infrastruktury.
 
-### 🔍 Opis
-
-Komponent `mkdocs-deploy` umożliwia automatyczne **publikowanie statycznej dokumentacji z MkDocs do GitLab Pages**. Wykorzystuje mechanizm GitLab Pages do hostowania wygenerowanej strony internetowej bez konieczności użycia dodatkowych serwerów czy zewnętrznej infrastruktury.
-
-Ten komponent zakłada, że dokumentacja została wcześniej zbudowana i znajduje się w katalogu `public/`.
+    Ten komponent zakłada, że dokumentacja została wcześniej zbudowana i znajduje się w katalogu `public/`.
 
 ---
-
-## ⚙️ Parametry wejściowe (`inputs`)
+### ⚙️ Parametry wejściowe (`inputs`)
 
 | Nazwa          | Typ    | Domyślna wartość                                             | Opis                                       |
 | -------------- | ------ | ------------------------------------------------------------ | ------------------------------------------ |
 | `docker_image` | string | `registry.gitlab.com/pl.rachuna-net/containers/mkdocs:1.0.0` | Obraz Dockera używany do publikacji strony |
 
 ---
-
-## 🧬 Zmienne środowiskowe
+### 🧬 Zmienne środowiskowe
 
 | Nazwa zmiennej          | Wartość                      |
 | ----------------------- | ---------------------------- |
 | `CONTAINER_IMAGE_PAGES` | `$[[ inputs.docker_image ]]` |
 
 ---
-
-## 🧱 Zależności
+### 🧱 Zależności
 
 * **Pliki lokalne**:
 
@@ -40,32 +34,31 @@ Ten komponent zakłada, że dokumentacja została wcześniej zbudowana i znajduj
   * Musi zawierać zawartość strony MkDocs (wynik działania `mkdocs build`)
 
 ---
-
-## 💿 Job: `mkdocs deploy`
+### 💿 Job: `mkdocs deploy`
 
 * Etap: `deploy`
 * Publikuje zawartość katalogu `public/` jako stronę GitLab Pages
 * Obsługuje środowiska (`environment:`) z dynamicznym URL
 
-### 📜 Skrypt
+#### 📜 Skrypt
 
 ```bash
 git config --global --add safe.directory ${CI_PROJECT_DIR}
 # Wyświetlenie logo i zmiennych (z .logo i .input-variables-mkdocs)
 ```
 
-### 📁 Publikacja do GitLab Pages
+#### 📁 Publikacja do GitLab Pages
 
 ```yaml
 pages:
   publish: public
 ```
 
-> Katalog `public/` musi istnieć – powinien zostać wygenerowany wcześniej, np. przez komponent `mkdocs-build`.
+!!! warning
+    Katalog `public/` musi istnieć – powinien zostać wygenerowany wcześniej, np. przez komponent `mkdocs-build`.
 
 ---
-
-## 🌐 Środowisko
+### 🌐 Środowisko
 
 ```yaml
 environment:
@@ -79,19 +72,7 @@ Dzięki temu:
 * strona będzie publicznie widoczna pod URL-em zależnym od projektu i namespace'u
 
 ---
-
-## ⛔ Reguły wykonania
-
-```yaml
-rules:
-  - when: never
-```
-
-> Job nie uruchamia się automatycznie – należy go wywołać ręcznie lub dodać warunek `rules:if:`.
-
----
-
-## 🧪 Przykład użycia
+### 🧪 Przykład użycia
 
 ```yaml
 include:
@@ -105,7 +86,3 @@ include:
     CONTAINER_IMAGE_PAGES: $CONTAINER_IMAGE_MKDOCS
   rules: !reference [.rule:deploy:mkdocs, rules]
 ```
-
----
-
-Chcesz też przygotowaną wersję `README.md` dla repozytorium komponentu, albo połączony przykład `build + deploy` w jednym pipeline?

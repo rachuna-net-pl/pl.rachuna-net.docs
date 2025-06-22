@@ -6,21 +6,21 @@ title: mkdocs
     Komponent `mkdocs-build` umożliwia automatyczne budowanie statycznej dokumentacji technicznej przy użyciu [MkDocs](https://www.mkdocs.org/) – popularnego narzędzia do tworzenia dokumentacji z plików Markdown. Dokumentacja jest generowana do katalogu `public/`, który może być później wykorzystany jako artefakt lub wdrożony np. za pomocą GitLab Pages.
 
 ---
-## ⚙️ Parametry wejściowe (`inputs`)
+### ⚙️ Parametry wejściowe (`inputs`)
 
 | Nazwa          | Typ    | Domyślna wartość                                             | Opis                                                   |
 | -------------- | ------ | ------------------------------------------------------------ | ------------------------------------------------------ |
 | `docker_image` | string | `registry.gitlab.com/pl.rachuna-net/containers/mkdocs:1.0.0` | Obraz Dockera zawierający MkDocs i wymagane zależności |
 
 ---
-## 🧬 Zmienne środowiskowe
+### 🧬 Zmienne środowiskowe
 
 | Nazwa zmiennej           | Wartość                      |
 | ------------------------ | ---------------------------- |
 | `CONTAINER_IMAGE_MKDOCS` | `$[[ inputs.docker_image ]]` |
 
 ---
-## 🧱 Zależności
+### 🧱 Zależności
 
 * **Pliki lokalne**:
 
@@ -33,19 +33,19 @@ title: mkdocs
   * katalog `docs/` – zawierający dokumentację w formacie Markdown
 
 ---
-## 🚀 Job: `build mkdocs project`
+### 🚀 Job: `build mkdocs project`
 
 * Etap: `build`
 * Buduje stronę dokumentacji MkDocs do katalogu `public/`
 * Artefakty są zapisywane i mogą być wykorzystane np. w `pages:` lub `deploy:` jobach
 
-### 📜 Skrypt
+#### 📜 Skrypt
 
 ```bash
 mkdocs build --site-dir public
 ```
 
-### 📁 Artefakty
+#### 📁 Artefakty
 
 ```yaml
 artifacts:
@@ -54,7 +54,7 @@ artifacts:
 ```
 
 ---
-## 🧪 Przykład użycia
+### 🧪 Przykład użycia
 
 ```yaml
 include:

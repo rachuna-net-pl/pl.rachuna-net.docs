@@ -10,7 +10,7 @@ title: terraform
     Komponent używa kontenera z preinstalowanym Terraformem i wspiera inicjalizację backendu stanu z wykorzystaniem zmiennej `TF_STATE_NAME`.
 
 ---
-## ⚙️ Parametry wejściowe (`inputs`)
+### ⚙️ Parametry wejściowe (`inputs`)
 
 | Nazwa           | Typ    | Domyślna wartość                                                | Opis                                                                 |
 | --------------- | ------ | --------------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -19,7 +19,7 @@ title: terraform
 | `debug`         | string | `"false"`                                                       | Czy włączyć tryb debugowania (`TF_LOG=debug`)                        |
 
 ---
-## 🧬 Zmienne środowiskowe
+### 🧬 Zmienne środowiskowe
 
 | Nazwa zmiennej              | Wartość                       |
 | --------------------------- | ----------------------------- |
@@ -29,7 +29,7 @@ title: terraform
 | `DEBUG`                     | `$[[ inputs.debug ]]`         |
 
 ---
-## 🧱 Zależności
+### 🧱 Zależności
 
 * Pliki lokalne:
 
@@ -40,9 +40,9 @@ title: terraform
 * Wymaga zmiennej `GITLAB_TOKEN` (przekazywanej jako `TF_VAR_gitlab_token`)
 
 ---
-## 🧪 Joby walidujące
+### 🧪 Joby walidujące
 
-### 🕵 Job: `terraform fmt`
+#### 🕵 Job: `terraform fmt`
 
 * Sprawdza poprawność formatowania plików `.tf`
 * Nie wykonuje zmian – tylko tryb walidacyjny (`-check`)
@@ -53,7 +53,7 @@ terraform fmt -recursive -check
 ```
 
 ---
-### ✅ Job: `terraform validate`
+#### ✅ Job: `terraform validate`
 
 * Waliduje pliki Terraform (`.tf`) względem składni, zależności i zmiennych
 * Poprzedzony `terraform init`
@@ -64,7 +64,7 @@ terraform validate
 ```
 
 ---
-## 🧪 Przykład użycia
+### 🧪 Przykład użycia
 
 ```yaml
 include:

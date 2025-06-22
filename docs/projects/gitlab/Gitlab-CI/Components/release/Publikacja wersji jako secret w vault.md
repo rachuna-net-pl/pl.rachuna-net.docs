@@ -24,7 +24,7 @@ title: Publikacja wersji jako secret w vault
 ![alt text](images/vault.png)
 
 ---
-## Sekcja `spec.inputs`
+### Sekcja `spec.inputs`
 
 Definiuje parametry wejściowe dla szablonu.
 
@@ -37,7 +37,7 @@ Definiuje parametry wejściowe dla szablonu.
 | `publish_value_variables_name` | `APPLICATION_VERSION`                                       | Nazwa zmiennej, której wartość ma być opublikowana |
 
 ---
-## Sekcja `variables`
+### Sekcja `variables`
 
 Ustawia zmienne środowiskowe używane w szablonie na podstawie wartości `spec.inputs`.
 
@@ -50,7 +50,7 @@ Ustawia zmienne środowiskowe używane w szablonie na podstawie wartości `spec.
 | `DEBUG`                              | `inputs.debug`                        |
 
 ---
-## Opis działania
+### Opis działania
 
 Ten blok jest głównym szablonem wykonawczym. Uruchamia skrypt w kontenerze Vaulta.
 
@@ -70,7 +70,7 @@ vault kv patch -mount=$PUBLISH_MOUNT_PATH $path $secret="${!PUBLISH_VAULT_VALUE_
     `${!PUBLISH_VAULT_VALUE_VARIABLES_NAME}` = **nie wartość literalna**, tylko **wartość zmiennej o nazwie podanej jako string**
 
 ---
-## 🔧 Wymagania
+### 🔧 Wymagania
 
 * Vault mount typu `kv` (v2) pod `kv-gitlab`
 * Token Vaulta (przez zmienną `VAULT_TOKEN`) z policy zawierającą:
@@ -89,7 +89,7 @@ path "kv-gitlab/metadata/*" {
 
 ---
 
-### 📦 Przykład użycia
+#### 📦 Przykład użycia
 
 W `.gitlab-ci.yml` projektu:
 
@@ -115,7 +115,7 @@ variables:
 
 ---
 
-## 🧪 Wynik działania
+### 🧪 Wynik działania
 
 W Vault zostanie zapisany:
 

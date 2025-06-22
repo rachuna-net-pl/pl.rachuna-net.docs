@@ -7,14 +7,14 @@ title: Input parameters
 ![](images/input_parameters.png)
 
 ---
-## ⚙️ Parametry wejściowe (`inputs`)
+### ⚙️ Parametry wejściowe (`inputs`)
 
 | Nazwa          | Typ    | Domyślna wartość                                             | Opis                                              |
 | -------------- | ------ | ------------------------------------------------------------ | ------------------------------------------------- |
 | `docker_image` | string | `registry.gitlab.com/pl.rachuna-net/containers/python:1.0.0` | Obraz Dockera z interpreterem Pythona lub shellem |
 
 ---
-## 🧬 Zmienne środowiskowe obsługiwane przez skrypt
+### 🧬 Zmienne środowiskowe obsługiwane przez skrypt
 
 Komponent wypisuje wartości m.in. następujących zmiennych:
 
@@ -36,7 +36,7 @@ Komponent wypisuje wartości m.in. następujących zmiennych:
 * `VAULT_ADDR`
 
 ---
-## 📤 Output
+### 📤 Output
 
 Skrypt wypisuje dane w formie tabeli ASCII w logach pipeline’u, np.:
 
@@ -52,14 +52,14 @@ Skrypt wypisuje dane w formie tabeli ASCII w logach pipeline’u, np.:
 ```
 
 ---
-## 🛠 Job: `🔍 input parameters`
+### 🛠 Job: `🔍 input parameters`
 
 * Etap: `prepare`
 * Uruchamia funkcję `print_input_parameters`, która drukuje wartości
 * **Nie uruchamia się automatycznie** (`rules: when: never`)
 
 ---
-## 🧪 Przykład użycia
+### 🧪 Przykład użycia
 
 ```yaml
 include:

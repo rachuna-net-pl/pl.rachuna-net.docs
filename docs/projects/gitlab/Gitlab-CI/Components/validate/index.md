@@ -11,5 +11,6 @@ title: Validate
 
 Komponent składa się z następujących templates:
 
+* [packer](packer/)
 * [terraform](terraform/)
 * [yamllint](yamllint/)

@@ -5,7 +5,7 @@ title: terraform
 !!! note
     Komponent `terraform-plan` umożliwia wykonanie polecenia `terraform plan`, służącego do sprawdzenia planowanych zmian w infrastrukturze przed ich zastosowaniem. Wspiera integrację z backendem stanu Terraform oraz umożliwia ustawienie zmiennych, takich jak token GitLab czy tryb debugowania.
 
-## ⚙️ Parametry wejściowe (`inputs`)
+### ⚙️ Parametry wejściowe (`inputs`)
 
 | Nazwa           | Typ    | Domyślna wartość                                                | Opis                                                                 |
 | --------------- | ------ | --------------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -14,7 +14,7 @@ title: terraform
 | `debug`         | string | `"false"`                                                       | Czy włączyć tryb debugowania (`TF_LOG=debug`)                        |
 
 ---
-## 🧬 Zmienne środowiskowe
+### 🧬 Zmienne środowiskowe
 
 | Nazwa zmiennej              | Wartość                       |
 | --------------------------- | ----------------------------- |
@@ -24,7 +24,7 @@ title: terraform
 | `DEBUG`                     | `$[[ inputs.debug ]]`         |
 
 ---
-## 🧱 Zależności
+### 🧱 Zależności
 
 * **Pliki lokalne**:
 
@@ -35,13 +35,13 @@ title: terraform
 * **Wymagana zmienna**: `GITLAB_TOKEN` (przekazywana jako `TF_VAR_gitlab_token`)
 
 ---
-## 🧪 Job: `terraform plan`
+### 🧪 Job: `terraform plan`
 
 * Wykonuje `terraform plan` na skonfigurowanym stanie Terraform.
 * Umożliwia inspekcję planowanych zmian w infrastrukturze bez ich stosowania.
 * Nie wykonuje się automatycznie – wymaga jawnego wywołania.
 
-### 📜 Skrypt
+#### 📜 Skrypt
 
 ```bash
 terraform plan
@@ -51,7 +51,7 @@ terraform plan
     Inicjalizacja (`terraform init`) wykonywana jest w sekcji `before_script`.
 
 ---
-## 🧪 Przykład użycia
+### 🧪 Przykład użycia
 
 ```yaml
 include:
