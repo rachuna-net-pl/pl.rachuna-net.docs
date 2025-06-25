@@ -5,8 +5,6 @@ description: Tworzenie grupy repozytoriów w GitLab za pomocą Terraform
 
 # ![](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/modules/gitlab-project/-/raw/main/images/terraform.png){width=20px} Tworzenie grupy repozytoriów w GitLab za pomocą Terraform
 
-## Wprowadzenie
-
 Niniejsza sekcja dokumentacji opisuje proces tworzenia grupy repozytoriów w GitLab przy użyciu Terraform. Prezentowane podejście umożliwia automatyczne zarządzanie strukturą repozytoriów, co wspiera podejście **Infrastructure as Code (IaC)**.
 
 !!! tips "Korzyści wynikające z użycia Terraform"
@@ -17,14 +15,16 @@ Niniejsza sekcja dokumentacji opisuje proces tworzenia grupy repozytoriów w Git
     - **Wersjonowanie konfiguracji**, co ułatwia kontrolę zmian,
     - **Powtarzalność konfiguracji**, eliminując błędy manualne.
 
-## Definiowanie grupy w Terraform
+---
+### Definiowanie grupy w Terraform
 
 Aby utworzyć grupę repozytoriów w GitLab, należy dodać odpowiednią definicję do pliku konfiguracyjnego Terraform. 
 
 **Repozytorium GitLab zawierające definicję:**  
 🔗 [GitLab: pl.rachuna-net/infrastructure/terraform/iac-gitlab](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/iac-gitlab)
 
-###  Przykładowy plik konfiguracyjny Terraform
+
+####  Przykładowy plik konfiguracyjny Terraform
 
 📄 **Ścieżka pliku:** `pl.rachuna-net/_containers.tf`
 
@@ -45,7 +45,8 @@ module "_containers" {
 # }
 ```
 
-## Weryfikacja planu Terraform
+---
+### Weryfikacja planu Terraform
 
 Po zapisaniu konfiguracji należy uruchomić polecenie `terraform plan`, które zwróci listę planowanych zmian:
 
@@ -99,14 +100,16 @@ Terraform will perform the following actions:
 Plan: 1 to add, 0 to change, 0 to destroy.
 ```
 
-## Wdrożenie zmian
+---
+### Wdrożenie zmian
 
 Jeśli planowane zmiany są zgodne z oczekiwaniami, należy wdrożyć je do **`main`** poprzez **Merge Request (MR)**, co spowoduje utworzenie grupy repozytoriów w GitLab.
 
-## Podsumowanie
+---
+### Podsumowanie
 
 Wdrożenie grupy repozytoriów w GitLab za pomocą Terraform zapewnia automatyzację, powtarzalność i centralizację zarządzania. Po poprawnym wykonaniu opisanych kroków, nowa grupa repozytoriów będzie gotowa do użytku.
 
 🚀 **Gotowe!** Grupa repozytoriów została pomyślnie utworzona przy użyciu Terraform. 🎉
 
-![](/projects/gitlab/Infrastructure as a Code/images/grp_infrastructure.png){height=400px}
+![](/projects/gitlab/Infrastructure as a Code/images/grp_infrastructure.png)

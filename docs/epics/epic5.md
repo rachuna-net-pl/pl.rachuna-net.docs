@@ -1,9 +1,9 @@
 ---
-title: Epic 4
+title: Epic 5
 hide:
 - navigation
 ---
-# Epic 4 - Utworzenie template vm na proxmox za pomocą packera
+# Epic 5 - Utworzenie template vm na proxmox za pomocą packera
 
 !!! notes
     Projekt zakłada stworzenie systemu do automatycznego budowania gotowych maszyn wirtualnych (template’ów) za pomocą Packer’a. Szablony takie jak Ubuntu, Alpine czy AlmaLinux będą wersjonowane i gotowe do wdrożenia w infrastrukturze, co znacząco przyspieszy provisioning środowisk. Automatyzacja zapewni spójność, oszczędność czasu oraz wyeliminowanie błędów manualnych.

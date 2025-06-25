@@ -13,7 +13,7 @@ Poniżej znajduje się lista stworzonych procesów
 |[cicd/gitlab-components.yml](https://gitlab.com/pl.rachuna-net/cicd/gitlab-ci/-/blob/main/cicd/gitlab-components.yml?ref_type=heads)| Proces dla gitlab-components|
 |[containers/docker.yml](https://gitlab.com/pl.rachuna-net/cicd/gitlab-ci/-/blob/main/containers/docker.yml?ref_type=heads) | Proces dla budowania kontenerów |
 |[infrastructure/ansible-playbook.yml](https://gitlab.com/pl.rachuna-net/cicd/gitlab-ci/-/blob/main/infrastructure/ansible-playbook.yml?ref_type=heads)| Proces deploymentu za pomocą ansible|
-|[infrastructure/ansible-roles.yml](https://gitlab.com/pl.rachuna-net/cicd/gitlab-ci/-/blob/main/infrastructure/ansible-roles.yml?ref_type=heads)| Proces wydawniczy dla ansible roles|
+|[infrastructure/ansible-role.yml](https://gitlab.com/pl.rachuna-net/cicd/gitlab-ci/-/blob/main/infrastructure/ansible-role.yml?ref_type=heads)| Proces wydawniczy dla ansible role|
 |[infrastructure/packer.yml](https://gitlab.com/pl.rachuna-net/cicd/gitlab-ci/-/blob/main/infrastructure/packer.yml?ref_type=heads)| Proces dla packer|
 |[infrastructure/terraform.yml](https://gitlab.com/pl.rachuna-net/cicd/gitlab-ci/-/blob/main/infrastructure/terraform.yml?ref_type=heads)| Proces dla terraform|
 |[mkdocs/pages.yml](https://gitlab.com/pl.rachuna-net/cicd/gitlab-ci/-/blob/main/mkdocs/pages.yml?ref_type=heads)| Proces wydawniczy mkdocs na pages |

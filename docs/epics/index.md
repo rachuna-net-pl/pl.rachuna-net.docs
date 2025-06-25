@@ -14,6 +14,12 @@ hide:
 
 <div class="grid cards" markdown>
 
+-   __🛠️ Epic 6__ - Hardening maszyn linuxowych za pomocą Ansible
+
+    ---
+    Projekt zakłada stworzenie ustandaryzowanego systemu zabezpieczania serwerów linuksowych w organizacji. Dzięki automatyzacji z użyciem Terraform i Ansible, proces będzie powtarzalny, skalowalny i łatwy do utrzymania. Zwiększy to poziom bezpieczeństwa środowisk IT i zmniejszy ryzyko błędów konfiguracyjnych.
+    [:octicons-arrow-right-24: Więcej](/epics/epic6/)
+
 -   __🛠️ Epic 5__ - Utworzenie template vm na proxmox za pomocą packera
 
     ---

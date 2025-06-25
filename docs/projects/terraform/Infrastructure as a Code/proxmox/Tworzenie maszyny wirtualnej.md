@@ -1,8 +1,6 @@
 ---
 title: Tworzenie maszyny wirtualnej
 description: Tworzenie maszyny wirtualnej na Proxmox za pomocą Terraform
-tags:
-- terraform
 ---
 
 # ![](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/modules/gitlab-project/-/raw/main/images/proxmox.png){width=20px} Tworzenie maszyny wirtualnej na Proxmox za pomocą Terraform
@@ -26,7 +24,7 @@ Niniejsza sekcja dokumentacji opisuje proces tworzenia maszyn wirtualnych na pla
 Aby utworzyć maszynę wirtualną, należy dodać odpowiednią definicję do pliku konfiguracyjnego Terraform. 
 
 **Repozytorium IaC Proxmox**  
-🔗 [GitLab: pl.rachuna-net/infrastructure/terraform/proxmox](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/proxmox)
+🔗 [GitLab: pl.rachuna-net/infrastructure/terraform/iac-proxmox](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/iac-proxmox)
 
 
 ###  Przykładowy plik konfiguracyjny Terraform

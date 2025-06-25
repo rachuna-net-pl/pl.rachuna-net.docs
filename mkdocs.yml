@@ -119,11 +119,13 @@ nav:
                       - "projects/gitlab/Gitlab-CI/Components/prepare/input_parameters.md"
                   - "validate":
                       - "projects/gitlab/Gitlab-CI/Components/validate/index.md"
+                      - "projects/gitlab/Gitlab-CI/Components/validate/ansible.md"
                       - "projects/gitlab/Gitlab-CI/Components/validate/packer.md"
                       - "projects/gitlab/Gitlab-CI/Components/validate/terraform.md"
                       - "projects/gitlab/Gitlab-CI/Components/validate/yamllint.md"
                   - "unit-test":
                       - "projects/gitlab/Gitlab-CI/Components/unit-test/index.md"
+                      - "projects/gitlab/Gitlab-CI/Components/unit-test/molecule.md"
                       - "projects/gitlab/Gitlab-CI/Components/unit-test/terraform.md"
                   - "sast":
                       - "projects/gitlab/Gitlab-CI/Components/sast/index.md"
@@ -142,6 +144,7 @@ nav:
                       - "projects/gitlab/Gitlab-CI/Components/release/Publikacja wersji jako secret w vault.md"
                   - "deploy":
                       - "projects/gitlab/Gitlab-CI/Components/deploy/index.md"
+                      - "projects/gitlab/Gitlab-CI/Components/deploy/ansible.md"
                       - "projects/gitlab/Gitlab-CI/Components/deploy/mkdocs.md"
                       - "projects/gitlab/Gitlab-CI/Components/deploy/terraform.md"
                   - "integration-test":
@@ -152,8 +155,10 @@ nav:
                   - "projects/gitlab/Gitlab-CI/pipelines/default.md"
                   - "projects/gitlab/Gitlab-CI/pipelines/gitlab-ci.md"
                   - "projects/gitlab/Gitlab-CI/pipelines/gitlab-component.md"
-                  - "projects/gitlab/Gitlab-CI/pipelines/docker.md"
                   - "projects/gitlab/Gitlab-CI/pipelines/mkdocs.md"
+                  - "projects/gitlab/Gitlab-CI/pipelines/docker.md"
+                  - "projects/gitlab/Gitlab-CI/pipelines/ansible-playbooks.md"
+                  - "projects/gitlab/Gitlab-CI/pipelines/ansible-role.md"
                   - "projects/gitlab/Gitlab-CI/pipelines/Packer.md"
                   - "projects/gitlab/Gitlab-CI/pipelines/Terraform.md"
               - "projects/gitlab/Gitlab-CI/Centralny proces w gitlab.md"
@@ -195,15 +200,24 @@ nav:
             #   - "projects/terraform/Infrastructure as a Code/routeros/RouterOS.md"
               - "proxmox":
                   - "projects/terraform/Infrastructure as a Code/proxmox/Tworzenie maszyny wirtualnej.md"
+                  - "projects/terraform/Infrastructure as a Code/proxmox/Tworzenie kontenera.md"
           - "projects/terraform/index.md"
           - "projects/terraform/Integracja z projektem gitlab.md"
           - "projects/terraform/Terraform modules.md"
           - "projects/terraform/Importowanie istniejących obiektów.md"
-          - "projects/terraform/Blog.md"
+          - "projects/terraform/Imporotwanie state.md"
       - "Ansible":
           - "projects/ansible/index.md"
           - "projects/ansible/Architektura rozwiazania.md"
           - "projects/ansible/Testowanie roli.md"
-          - "projects/ansible/Blog.md"
+        #   - "projects/ansible/PLaybooks.md"
+          - "Roles":
+              - "projects/ansible/Roles/index.md"
+              - "projects/ansible/Roles/ca-certificates.md"
+              - "projects/ansible/Roles/configure-ssh.md"
+              - "projects/ansible/Roles/configure-sudo.md"
+              - "projects/ansible/Roles/install-packages.md"
+              - "projects/ansible/Roles/set-hostname.md"
+              - "projects/ansible/Roles/users-management.md"
   - "🛠️ Epics":
       - "epics/index.md"

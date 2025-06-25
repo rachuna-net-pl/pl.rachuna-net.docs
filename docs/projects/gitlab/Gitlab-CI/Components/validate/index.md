@@ -11,6 +11,7 @@ title: Validate
 
 Komponent składa się z następujących templates:
 
+* [ansible](ansible/)
 * [packer](packer/)
 * [terraform](terraform/)
 * [yamllint](yamllint/)
