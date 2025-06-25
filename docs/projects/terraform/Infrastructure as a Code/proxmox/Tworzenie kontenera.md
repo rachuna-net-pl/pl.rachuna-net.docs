@@ -1,72 +1,74 @@
 ---
-date:
-    created: 2025-05-02
-authors:
-    - maciej-rachuna
-title: TERRAFORM - Utworzenie maszyny wirtualnej za pomocą na proxmox
-categories:
-    - terraform
-    - proxmox
-tags:
-    - terraform
-    - proxmox
+title: Tworzenie kontenera (lxc)
+description: Tworzenie kontenera (lxc)
 ---
 
-# ![](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/modules/gitlab-project/-/raw/main/images/terraform.png){height=20px} TERRAFORM - Utworzenie maszyny wirtualnej za pomocą na proxmox
+# ![](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/modules/gitlab-project/-/raw/main/images/proxmox.png){width=20px} Tworzenie kontenera (lxc) na ProxMox
 
-Celem ćwiczenia jest utworzenie maszyny wirtualnej przy użyciu proxmox i providera **bgp/proxmox**[^1]
+## Wprowadzenie
 
-<!-- more -->
-## **Tworzmy moduł terraform**
-``` bash
-.
-├── main.tf
-├── output.tf
-├── providers.tf
-└── variable.tf
-```
-Cały kod tego modułu znajduje się [tutaj](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/modules/proxmox-vm)
+Niniejsza sekcja dokumentacji opisuje proces tworzenia maszyn wirtualnych na platformie Proxmox przy użyciu Terraform. Prezentowane podejście umożliwia automatyczne zarządzanie infrastrukturą w duchu **Infrastructure as Code (IaC)**.
+
+!!! tips "Korzyści wynikające z użycia Terraform"
+
+    Terraform pozwala na:
+
+    - **Automatyzację** tworzenia i zarządzania maszynami wirtualnymi w Proxmoxie,  
+    - **Wersjonowanie konfiguracji**, co ułatwia śledzenie i audyt zmian,  
+    - **Powtarzalność wdrożeń**, co minimalizuje ryzyko błędów manualnych i zwiększa spójność środowisk.
+
+---
+
+## Definiowanie grupy w Terraform
+
+Aby utworzyć maszynę wirtualną, należy dodać odpowiednią definicję do pliku konfiguracyjnego Terraform. 
+
+**Repozytorium IaC Proxmox**  
+🔗 [GitLab: pl.rachuna-net/infrastructure/terraform/iac-proxmox](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/iac-proxmox)
 
 
-### Przykładowa definicja vm w [IaaC](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/proxmox/-/blob/main/virtual_machines/vm01002.tf)
+###  Przykładowy plik konfiguracyjny Terraform
+
+📄 **Ścieżka pliku:** `virtual_machines/ct01002.tf`
 
 ```hcl
-module "vm01002" {
-  source = "git@gitlab.com:pl.rachuna-net/infrastructure/terraform/modules/proxmox-vm.git?ref=V1.0.0"
+module "ct01002" {
+  source = "git@gitlab.com:pl.rachuna-net/infrastructure/terraform/modules/proxmox-container.git?ref=v1.0.0"
 
-  hostname      = "vm01002"
+  hostname      = "ct01002.rachuna-net.pl"
   description   = "gitlab-runner s2"
   node_name     = "pve-s2"
-  tags          = ["gitlab-runner", "ubuntu"]
-  pool_id       = "gitlab-runner"
   vm_id         = 1002
-  is_production = false
+  pool_id       = "gitlab-runner"
   protection    = true
+  start_on_boot = true
+  tags          = ["gitlab-runner", "ubuntu"]
+  unprivileged  = true
+  is_dmz        = false
+  mac_address   = "BC:24:11:BA:0F:CD"
 
-  template = {
-    node_name = "pve-s1"
-    vm_id     = 100
-  }
-
+  cpu_cores = 2
   memory = {
-    dedicated = 2048
-    floating  = 2048
+    dedicated = 1024
+    swap      = 1024
+  }
+  disk = {
+    storage_name = local.storage_name
+    disk_size    = 32
   }
 
-  cpu = {
-    cores   = 2
-    sockets = 1
-    type    = "host"
+  operating_system = {
+    template_file = join("/", [local.ct_storage_name, "ubuntu-24.10.tar.zst"])
+    type          = "ubuntu"
   }
 
-  technical_user = {
-    username    = "tech_admin"
-    ssh_pub_key = var.technical_user_ssh_pub_key
+  root = {
+    password    = random_password.password.result
+    ssh_pub_key = data.vault_kv_secret_v2.gitlab_pl-rachuna-net.data["GITLAB_SSH_PUBKEY"]
   }
-
 }
 ```
-Konfiguracja skryptu
+Konfiguracja skryptu, do manualnego uruchomienia
 ```bash
 export CI_SERVER_URL="https://gitlab.com"
 export CI_PROJECT_ID="******"
@@ -93,6 +95,10 @@ terraform init \
 terraform plan
 terraform apply -auto-approve
 ```
+
+## Weryfikacja planu Terraform
+
+Po zapisaniu konfiguracji należy uruchomić polecenie `terraform plan`, które zwróci listę planowanych zmian:
 
 ```bash
 $ terraform apply -auto-approve
@@ -199,6 +205,15 @@ Terraform will perform the following actions:
     }
 Plan: 1 to add, 0 to change, 0 to destroy.
 ```
-![](pipeline.png)
 
-[^1]: Źródło: Dokumentacja providera [bpg/proxmox](https://registry.terraform.io/providers/bpg/proxmox/latest/docs)
+## Wdrożenie zmian
+
+Jeśli planowane zmiany są zgodne z oczekiwaniami, należy wdrożyć je do **`main`** poprzez **Merge Request (MR)**, co spowoduje utworzenie wirtualnej maszyny.
+
+## Podsumowanie
+
+Tworzenie maszyn wirtualnych za pomocą Terraform zapewnia automatyzację, powtarzalność i centralizację zarządzania. Po poprawnym wykonaniu opisanych kroków, nowa maszyna wirtualna będzie gotowa do użytku.
+
+![](images/pipeline.png)
+
+🚀 **Gotowe!** Nowa maszyna wirtualna została pomyślnie utworzona przy użyciu Terraform. 🎉

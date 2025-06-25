@@ -12,4 +12,5 @@ title: unit-test
 
 Komponent składa się z następujących templates:
 
+* [molecule](molecule/)
 * [terraform](terraform/)

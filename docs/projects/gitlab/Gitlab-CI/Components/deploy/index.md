@@ -11,5 +11,6 @@ title: deploy
 
 Komponent składa się z następujących templates:
 
+* [ansible](ansible/)
 * [mkdocs](mkdocs/)
 * [terraform](terraform/)

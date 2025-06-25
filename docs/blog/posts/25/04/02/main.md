@@ -4,8 +4,6 @@ date:
 authors:
     - maciej-rachuna
 title: VAGRANT - Środowisko developerskie
-tags:
-    - vagrant
 ---
 
 # ![](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/modules/gitlab-project/-/raw/main/images/vagrant.png){height=20px} VAGRANT - Środowisko developerskie
