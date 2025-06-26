@@ -10,9 +10,16 @@ hide:
 
 <!-- - [🛠️ Epic 8 - Zarządzanie usługami routerami mikrotik za pomocą terraform](/epics/epic7/)
 - [🛠️ Epic 7 - Utworzenie vault and consul na proxmox](/epics/epic6/)
-- [🛠️ Epic 6 - Utworzenie gitlab-runners na proxmox](/epics/epic5/) -->
+ -->
 
 <div class="grid cards" markdown>
+
+-   __🛠️ Epic 7__ -  Utworzenie gitlab-runners na proxmox
+    
+    ---
+    Celem przedsięwzięcia jest uruchomienie dedykowanych GitLab Runnerów na infrastrukturze Proxmox, co pozwoli na niezależne i bezpieczne wykonywanie zadań CI/CD. Dzięki wykorzystaniu Terraform i Ansible proces wdrożenia będzie w pełni zautomatyzowany, zgodny z wewnętrznymi standardami i łatwy do utrzymania w dłuższej perspektywie.
+
+    [:octicons-arrow-right-24: Więcej](/epics/epic7/)
 
 -   __🛠️ Epic 6__ - Hardening maszyn linuxowych za pomocą Ansible
 
