@@ -50,7 +50,7 @@ Zakres techniczny:
 - [x] [DEVOPS-152](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-152): Utworzenie modułu pobierającego containers dla proxmox [v1.0.0](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/modules/proxmox-download-container/-/releases/v1.0.0)
 - [x] [DEVOPS-153](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-152): Utworzenie modułu tworzącego containers [v1.0.0](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/modules/proxmox-container/-/releases/v1.0.0)
 - [x] [DEVOPS-154](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-152): Przygotowanie projektu iac-proxmox [v1.0.0](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/iac-proxmox/-/releases/v1.0.0)
-- [x] Utworzenie maszyny wirtualnej [ct01002](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/iac-proxmox/-/releases/v1.0.0)
+- [x] [DEVOPS-154](https://rachuna-net-pl.atlassian.net/browse/DEVOPS-154): Utworzenie maszyny wirtualnej [ct01002](https://gitlab.com/pl.rachuna-net/infrastructure/terraform/iac-proxmox/-/releases/v1.0.0)
 
 ---
 ## Utworzenie procesu CI dla ansible
